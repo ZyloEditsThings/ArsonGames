@@ -1,38 +1,31 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArsonGames Co.</title>
     <style>
-        /* CSS for the logo */
-        .logo-container {
-            display: inline-block;
-            vertical-align: middle;
+        /* General body styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
         }
 
-        .logo {
-            height: 50px; /* Adjust as needed */
-            margin-right: 20px;
-        }
-
-        /* CSS for tabs */
-        .tab-container {
-            background-color: rgba(128, 0, 128, 0.49); /* Purple color with increased transparency */
-            padding: 10px;
-            margin-bottom: 20px;
-            width: 100%;
-            box-sizing: border-box;
-            border-radius: 0; /* No rounded corners for the top box */
-        }
-
+        /* Style the tabs */
         .tab {
             overflow: hidden;
-            width: calc(100% - 100px); /* Adjusted width to make room for logo */
-            margin-left: 100px; /* Space for logo */
-            box-sizing: border-box;
+            background-color: rgba(128, 0, 128, 0.7); /* Purple box with 70% opacity */
+            border-radius: 0;
+            margin-bottom: 20px;
+            padding: 10px;
+            display: flex;
+            justify-content: space-around;
         }
 
-        /* Style the buttons inside the tab */
         .tab button {
-            background-color: #005b80; /* Darker blue */
+            background-color: #005f99; /* 30% darker blue */
             float: left;
             border: none;
             outline: none;
@@ -42,196 +35,80 @@
             color: white;
             font-size: 17px;
             margin-right: 5px;
-            border-radius: 10px 10px 0 0; /* Rounded corners for the tabs */
+            border-radius: 10px 10px 0 0;
         }
 
-        /* Change background color of buttons on hover */
-        .tab button:hover:not(.download-button) {
-            background-color: green; /* Green on hover */
-        }
-
-        /* Active tab button class */
-        .tab button.active {
+        .tab button:hover {
             background-color: purple;
         }
 
-        /* Style the tab content */
         .tabcontent {
             display: none;
             padding: 20px;
-            border-radius: 0 10px 10px 10px; /* Rounded corners for the content */
+            border-radius: 0 10px 10px 10px;
             background-color: #f0f0f0;
-            border: 2px solid purple; /* Added border for the purple box */
         }
 
-        /* CSS for popup */
-        .popup {
-            display: none;
-            position: fixed;
-            left: 50%;
-            top: -100%; /* Start position for slide-down effect */
-            transform: translate(-50%, -50%);
-            width: 30%; /* Decreased width by 50% */
-            height: 56%; /* Decreased height by 30% */
-            background-color: lightgray;
+        /* Centered header text */
+        .header-text {
+            text-align: center;
+            font-size: 32px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+
+        /* Style for the three boxes */
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+        }
+
+        .box {
+            background-color: #ffffff;
             border: 2px solid black; /* Unique black border */
-            padding: 20px;
-            border-radius: 10px; /* Rounded corners */
-            z-index: 1000; /* On top of other content */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Light shadow */
-            overflow-y: auto; /* Enable vertical scroll if content overflows */
-            transition: top 0.5s ease-in-out; /* Smooth slide-down animation */
-        }
-
-        .popup.show {
-            top: 50%; /* End position for slide-down effect */
-        }
-
-        .popup .close-btn {
-            background-color: black;
-            color: white;
-            border: none;
-            padding: 5px 10px;
-            cursor: pointer;
-            border-radius: 5px;
-            position: absolute;
-            bottom: 10px;
-            left: 10px;
-        }
-
-        .popup .close-btn:hover {
-            background-color: darkred;
-        }
-
-        .popup-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
-            z-index: 999; /* Just below the popup */
-        }
-        
-        /* Style the "About Download" button */
-        .download-button {
-            border: 2px solid purple; /* Purple box outline */
-            background-color: #005b80; /* Darker blue */
-            color: white;
-            border-radius: 10px; /* Rounded corners */
-        }
-        
-        .download-button:hover {
-            background-color: green; /* Green on hover */
-        }
-        
-        .download-button.selected {
-            background-color: green; /* Green when selected */
+            border-radius: 10px;
+            width: 200px;
+            height: 300px;
+            margin: 0 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
     </style>
 </head>
-<body style="background-color: #f0f0f0; margin: 0;">
+<body>
 
-<!-- Purple box container for tabs and logo -->
-<div class="tab-container">
-    <div class="logo-container">
-        <img src="https://banner2.cleanpng.com/20231225/rhl/transparent-cartoon-video-game-controller-cartoon-representati-video-game-controller-two-joysticks-buttons-1710957940876.webp" alt="Logo" class="logo">
-    </div>
-    <div class="tab">
-        <button class="tablinks active" onclick="openTab(event, 'Home')">Home</button>
-        <button class="tablinks" onclick="openTab(event, 'Information')">Information</button>
-        <button class="tablinks" onclick="openTab(event, 'Address An Issue')">Address An Issue</button>
-        <button class="tablinks" onclick="openTab(event, 'Code')">Code</button>
-        <button class="tablinks" onclick="openTab(event, 'Download')">Download</button>
-    </div>
+<!-- Tab links -->
+<div class="tab">
+    <button onclick="openTab('Home')">Home</button>
+    <button onclick="openTab('Information')">Information</button>
+    <button onclick="openTab('Address An Issue')">Address An Issue</button>
+    <button onclick="openTab('Code')">Code</button>
+    <button onclick="openTab('Download')">Download</button>
 </div>
 
-<!-- Tab content -->
-<div id="Home" class="tabcontent" style="display: block;">
-    <h1>This website is made by ArsonGames.</h1>
-    <h2>About this website</h2>
-    <p>This website will be updated frequently and will have new updates from ArsonGames</p>
-    <a href="https://www.youtube.com">Visit Our YouTube Channel</a>
-</div>
+<!-- Header text -->
+<div class="header-text">ArsonGames Co.</div>
 
-<div id="Information" class="tabcontent">
-    <h2>Information</h2>
-    <p>Our goal is to create some of the most realistic looking games ever made, and we will create games that create the aesthetic, just from the games TRAILERS.</p>
-</div>
-
-<div id="Address An Issue" class="tabcontent">
-    <h2>Issues And Answers</h2>
-    <p>No Issues Found Just Yet...</p>
-</div>
-
-<div id="Code" class="tabcontent">
-    <h2>Code</h2>
-    <p>Code that is being used for the game is C# and a tiny amount of javascript for the server at the moment.</p>
-</div>
-
-<div id="Download" class="tabcontent">
-    <h2>Download Our Launcher To Run All Of Our Games</h2>
-    <p>SOON</p>
-    <button class="download-button" onclick="showPopup()">About Download</button> <!-- Changed button text -->
-</div>
-
-<!-- Popup -->
-<div class="popup-overlay" id="popupOverlay"></div>
-<div class="popup" id="popup">
-    <h2>ArsonGames Download Information</h2> <!-- Updated title -->
-    <p>The launcher will soon be public for people to use and we will be selling early-access games for about $10. More information will come out soon.</p> <!-- Updated text -->
-    <button class="close-btn" onclick="hidePopup()">Close</button>
+<!-- Container for the three boxes -->
+<div class="container">
+    <div class="box" id="box1">Box 1</div>
+    <div class="box" id="box2">Box 2</div>
+    <div class="box" id="box3">Box 3</div>
 </div>
 
 <script>
     // JavaScript function to open specific tab content
-    function openTab(event, tabName) {
-        var i, tabcontent, tablinks;
-
-        // Hide all tab content
-        tabcontent = document.getElementsByClassName("tabcontent");
+    function openTab(tabName) {
+        var i;
+        var tabcontent = document.getElementsByClassName("tabcontent");
         for (i = 0; i < tabcontent.length; i++) {
             tabcontent[i].style.display = "none";
         }
-
-        // Remove the class "active" from all tab buttons
-        tablinks = document.getElementsByClassName("tablinks");
-        for (i = 0; i < tablinks.length; i++) {
-            tablinks[i].className = tablinks[i].className.replace(" active", "");
-        }
-
-        // Show the current tab content and add "active" class to the button that opened the tab
         document.getElementById(tabName).style.display = "block";
-        event.currentTarget.className += " active";
-    }
-
-    // Show popup
-    function showPopup() {
-        document.getElementById("popupOverlay").style.display = "block";
-        var popup = document.getElementById("popup");
-        popup.style.display = "block";
-        setTimeout(function() {
-            popup.classList.add("show");
-        }, 3); // Decreased delay to 3ms
-        
-        // Change background color of the button to green when popup is shown
-        var button = document.querySelector('.download-button');
-        button.classList.add('selected');
-    }
-
-    // Hide popup
-    function hidePopup() {
-        document.getElementById("popupOverlay").style.display = "none";
-        var popup = document.getElementById("popup");
-        popup.classList.remove("show");
-        setTimeout(function() {
-            popup.style.display = "none";
-        }, 500); // Match the transition duration
-        
-        // Remove background color of the button when popup is hidden
-        var button = document.querySelector('.download-button');
-        button.classList.remove('selected');
     }
 </script>
 
