@@ -59,8 +59,9 @@
         .tabcontent {
             display: none;
             padding: 20px;
+            border-radius: 0 10px 10px 10px; /* Rounded corners for the content */
             background-color: #f0f0f0;
-            border: 0; /* Removed border */
+            border: 2px solid purple; /* Added border for the purple box */
         }
 
         /* CSS for popup */
@@ -110,22 +111,20 @@
             z-index: 999; /* Just below the popup */
         }
 
-        /* Three boxes */
-        .box-container {
+        /* Style for the big vertical rectangles */
+        .rectangle-container {
             display: flex;
             justify-content: space-around;
+            align-items: center;
             margin-top: 50px;
         }
 
-        .box {
-            width: 30%; /* Each box takes 30% of the container */
-            padding: 20px;
+        .rectangle {
+            width: 30%;
+            height: 300px; /* Increased height for a big vertical rectangle */
+            background-color: transparent;
+            border: 2px solid #00CED1; /* Light blue-neon outline */
             border-radius: 10px;
-            border: 2px solid #00FFFF; /* Light blue outline */
-            background-color: rgba(0, 0, 255, 0.3); /* Transparent blue background */
-            text-align: center;
-            box-sizing: border-box;
-            height: 130%; /* Increased height by 30% */
         }
     </style>
 </head>
@@ -147,11 +146,10 @@
 
 <!-- Tab content -->
 <div id="Home" class="tabcontent" style="display: block;">
-    <!-- Boxes -->
-    <div class="box-container">
-        <div class="box">Box 1</div>
-        <div class="box">Box 2</div>
-        <div class="box">Box 3</div>
+    <div class="rectangle-container">
+        <div class="rectangle"></div>
+        <div class="rectangle"></div>
+        <div class="rectangle"></div>
     </div>
 </div>
 
@@ -179,7 +177,7 @@
 <!-- Popup -->
 <div class="popup-overlay" id="popupOverlay"></div>
 <div class="popup" id="popup">
-    <h2>Download Information</h2
+    <h2>Download Information</h2>
     <p>Here you can find more details about downloading our launcher and other products.</p>
     <button class="close-btn" onclick="hidePopup()">Close</button>
 </div>
