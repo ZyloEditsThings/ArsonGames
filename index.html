@@ -96,6 +96,18 @@
     <div class="box" id="box3">Box 3</div>
 </div>
 
+<!-- Tab content -->
+<div id="Information" class="tabcontent">
+    <h2>Information</h2>
+    <p>Welcome to ArsonGames! We create a variety of new realistic games and have a ton of fun making them. Expect frequent updates and minimal install sizes!</p>
+</div>
+
+<div id="Download" class="tabcontent">
+    <h2>Download Our Launcher</h2>
+    <p>Our launcher allows you to access all of our games easily. Click the button below to download.</p>
+    <button onclick="downloadLauncher()">Download Launcher</button>
+</div>
+
 <script>
     // JavaScript function to open specific tab content
     function openTab(tabName) {
@@ -105,6 +117,12 @@
             tabcontent[i].style.display = "none";
         }
         document.getElementById(tabName).style.display = "block";
+    }
+
+    // Function to simulate downloading launcher
+    function downloadLauncher() {
+        alert("Downloading launcher...");
+        // Add your download logic here
     }
 </script>
 
