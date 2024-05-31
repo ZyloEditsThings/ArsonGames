@@ -102,7 +102,7 @@
 </div>
 
 <!-- Tab content -->
-<div id="Home" class="tabcontent">
+<div id="Home" class="tabcontent" style="display: block;">
     <h2>Home</h2>
     <p>Welcome to ArsonGames! Explore our website for exciting games and updates.</p>
 </div>
@@ -133,9 +133,11 @@
     function openTab(tabName) {
         var i;
         var tabcontent = document.getElementsByClassName("tabcontent");
-        var tablinks = document.getElementsByClassName("tablinks");
+        var tablinks = document.getElementsByClassName("tab button");
         for (i = 0; i < tabcontent.length; i++) {
             tabcontent[i].style.display = "none";
+        }
+        for (i = 0; i < tablinks.length; i++) {
             tablinks[i].classList.remove("selected");
         }
         document.getElementById(tabName).style.display = "block";
