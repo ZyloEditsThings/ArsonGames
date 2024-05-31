@@ -80,11 +80,15 @@
         }
 
         .rectangle {
-            width: 80px;
-            height: 200px;
+            width: 100px;
+            height: 300px;
             background-color: transparent;
             border: 2px solid black;
-            margin: 0 2px; /* Extremely small gap between the boxes */
+            margin: 0 10px; /* Gap between the boxes */
+            border-radius: 10px; /* Rounded corners */
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
     </style>
 </head>
@@ -108,9 +112,9 @@
 <div id="Home" class="tabcontent" style="display: block;">
     <div class="heading">ArsonGames Co.</div>
     <div class="rectangle-container">
-        <div class="rectangle"></div>
-        <div class="rectangle"></div>
-        <div class="rectangle"></div>
+        <div class="rectangle">Box 1</div>
+        <div class="rectangle">Box 2</div>
+        <div class="rectangle">Box 3</div>
     </div>
 </div>
 
