@@ -133,7 +133,7 @@
     function openTab(tabName) {
         var i;
         var tabcontent = document.getElementsByClassName("tabcontent");
-        var tablinks = document.getElementsByClassName("tab button");
+        var tablinks = document.querySelectorAll(".tab button");
         for (i = 0; i < tabcontent.length; i++) {
             tabcontent[i].style.display = "none";
         }
