@@ -47,7 +47,7 @@
 
         /* Change background color of buttons on hover */
         .tab button:hover {
-            background-color: purple;
+            background-color: green; /* Green on hover */
         }
 
         /* Active tab button class */
@@ -110,6 +110,22 @@
             background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
             z-index: 999; /* Just below the popup */
         }
+        
+        /* Style the "About Download" button */
+        .download-button {
+            border: 2px solid purple; /* Purple box outline */
+            background-color: #005b80; /* Darker blue */
+            color: white;
+            border-radius: 10px; /* Rounded corners */
+        }
+        
+        .download-button:hover {
+            background-color: green; /* Green on hover */
+        }
+        
+        .download-button.selected {
+            background-color: green; /* Green when selected */
+        }
     </style>
 </head>
 <body style="background-color: #f0f0f0; margin: 0;">
@@ -117,7 +133,7 @@
 <!-- Purple box container for tabs and logo -->
 <div class="tab-container">
     <div class="logo-container">
-        <img src="https://banner2.cleanpng.com/20231225/rhl/transparent-cartoon-video-game-controller-cartoon-representati-video-game-controller-two-joysticks-buttons-1710957940876.webp" alt="Logo" class="logo"> <https://banner2.cleanpng.com/20231225/rhl/transparent-cartoon-video-game-controller-cartoon-representati-video-game-controller-two-joysticks-buttons-1710957940876.webp>
+        <img src="https://banner2.cleanpng.com/20231225/rhl/transparent-cartoon-video-game-controller-cartoon-representati-video-game-controller-two-joysticks-buttons-1710957940876.webp" alt="Logo" class="logo">
     </div>
     <div class="tab">
         <button class="tablinks active" onclick="openTab(event, 'Home')">Home</button>
@@ -154,7 +170,7 @@
 <div id="Download" class="tabcontent">
     <h2>Download Our Launcher To Run All Of Our Games</h2>
     <p>SOON</p>
-    <button onclick="showPopup()">More Info</button>
+    <button class="download-button" onclick="showPopup()">About Download</button> <!-- Changed button text -->
 </div>
 
 <!-- Popup -->
@@ -195,6 +211,10 @@
         setTimeout(function() {
             popup.classList.add("show");
         }, 3); // Decreased delay to 3ms
+        
+        // Change background color of the button to green when popup is shown
+        var button = document.querySelector('.download-button');
+        button.classList.add('selected');
     }
 
     // Hide popup
@@ -205,6 +225,10 @@
         setTimeout(function() {
             popup.style.display = "none";
         }, 500); // Match the transition duration
+        
+        // Remove background color of the button when popup is hidden
+        var button = document.querySelector('.download-button');
+        button.classList.remove('selected');
     }
 </script>
 
