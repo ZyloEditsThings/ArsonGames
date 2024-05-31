@@ -39,17 +39,10 @@
         }
 
         .tabcontent {
-            display: none;
             padding: 20px;
             border-radius: 0 10px 10px 10px;
             background-color: #f0f0f0;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 80%; /* Adjust width as needed */
-            max-width: 800px; /* Maximum width for larger screens */
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: none; /* Hide all tab content initially */
         }
 
         /* Centered header text */
@@ -104,9 +97,24 @@
 </div>
 
 <!-- Tab content -->
+<div id="Home" class="tabcontent">
+    <h2>Home</h2>
+    <p>Welcome to ArsonGames! Explore our website for exciting games and updates.</p>
+</div>
+
 <div id="Information" class="tabcontent">
     <h2>Information</h2>
     <p>Welcome to ArsonGames! We create a variety of new realistic games and have a ton of fun making them. Expect frequent updates and minimal install sizes!</p>
+</div>
+
+<div id="Address An Issue" class="tabcontent">
+    <h2>Address An Issue</h2>
+    <p>If you encounter any issues with our games or website, please let us know.</p>
+</div>
+
+<div id="Code" class="tabcontent">
+    <h2>Code</h2>
+    <p>We primarily use C# for our game development, along with a small amount of JavaScript for web-related tasks.</p>
 </div>
 
 <div id="Download" class="tabcontent">
