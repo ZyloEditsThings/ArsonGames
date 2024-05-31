@@ -61,7 +61,7 @@
             padding: 20px;
             border-radius: 0 10px 10px 10px; /* Rounded corners for the content */
             background-color: #f0f0f0;
-            border: 2px solid purple; /* Added border for the purple box */
+            /* border: 2px solid purple; */ /* Removed purple outline */
         }
 
         /* CSS for popup */
@@ -110,25 +110,6 @@
             background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
             z-index: 999; /* Just below the popup */
         }
-
-        /* Added styles for the modifications */
-        .centered-text {
-            text-align: center;
-            margin-top: 100px; /* Adjust as needed */
-        }
-
-        .boxes-container {
-            display: flex;
-            justify-content: space-around;
-            margin-top: 50px; /* Adjust as needed */
-        }
-
-        .box {
-            width: 200px;
-            height: 200px;
-            border: 2px solid #00FFFF; /* Light blue-neon outline */
-            background-color: rgba(255, 255, 255, 0.1); /* Transparent fill color */
-        }
     </style>
 </head>
 <body style="background-color: #f0f0f0; margin: 0;">
@@ -136,7 +117,7 @@
 <!-- Purple box container for tabs and logo -->
 <div class="tab-container">
     <div class="logo-container">
-        <img src="https://banner2.cleanpng.com/20231225/rhl/transparent-cartoon-video-game-controller-cartoon-representati-video-game-controller-two-joysticks-buttons-1710957940876.webp" alt="Logo" class="logo">
+        <img src="https://banner2.cleanpng.com/20231225/rhl/transparent-cartoon-video-game-controller-cartoon-representati-video-game-controller-two-joysticks-buttons-1710957940876.webp" alt="Logo" class="logo"> <https://banner2.cleanpng.com/20231225/rhl/transparent-cartoon-video-game-controller-cartoon-representati-video-game-controller-two-joysticks-buttons-1710957940876.webp>
     </div>
     <div class="tab">
         <button class="tablinks active" onclick="openTab(event, 'Home')">Home</button>
@@ -149,14 +130,10 @@
 
 <!-- Tab content -->
 <div id="Home" class="tabcontent" style="display: block;">
-    <div class="centered-text">
-        <h1 style="color: white;">ArsonGames Co.</h1>
-    </div>
-    <div class="boxes-container">
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-    </div>
+    <h1>This website is made by ArsonGames.</h1>
+    <h2>About this website</h2>
+    <p>This website will be updated frequently and will have new updates from ArsonGames</p>
+    <a href="https://www.youtube.com">Visit Our YouTube Channel</a>
 </div>
 
 <div id="Information" class="tabcontent">
@@ -185,9 +162,9 @@
 <div class="popup" id="popup">
     <h2>Download Information</h2>
     <p>Here you can find more details about downloading our launcher and other products.</p>
-    <button class="close-btn" onclick="hidePopup()">Close</button>
-</div>
+<button class="close-btn" onclick="hidePopup()">Close</button>
 
+</div>
 <script>
     // JavaScript function to open specific tab content
     function openTab(event, tabName) {
@@ -230,6 +207,5 @@
         }, 500); // Match the transition duration
     }
 </script>
-
 </body>
 </html>
