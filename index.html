@@ -155,9 +155,10 @@
         .popup .close-btn:hover {
             background-color: red; /* Change background color on hover */
         }
+
         /* Style for the download button */
-        .download-btn {
-            display: block;
+        .install-btn {
+            display: inline-block;
             width: 200px;
             height: 50px;
             background-color: green;
@@ -167,10 +168,46 @@
             text-decoration: none;
             border-radius: 5px;
             margin: 20px auto; /* Center the button horizontally with 20px margin from top */
+            position: relative;
         }
 
-        .download-btn:hover {
+        .install-btn:hover {
             background-color: darkgreen;
+        }
+
+        .install-btn::after {
+            content: "▼";
+            font-size: 12px;
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: green;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f0f0f0;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            width: 100%;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: center;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+
+        .install-btn:hover .dropdown-content {
+            display: block;
         }
     </style>
 </head>
@@ -217,7 +254,7 @@
 
 <div id="Download" class="tabcontent">
     <h2>Download Our Launcher To Run All Of Our Games</h2>
-    <button onclick="showPopup()">More Info</button>
+    <button onclick="showPopup()">Install (Early Access)</button>
 </div>
 
 <!-- Popup overlay -->
@@ -225,47 +262,52 @@
 
 <!-- Popup -->
 <div class="popup" id="popup">
-    <span class="close-btn" onclick="hidePopup()">Close</span>
-    <h2 class="popup-heading">Download For More Info</h2>
-    <p class="popup-text">Download ArsonLauncher V1.0.5</p>
-    <a href="https://download1078.mediafire.com/dtco43a4ihageaapxOTLgsx_bbqvWQNHQ-F9AwfhsVdrYbGCqMbXd35JZuijKckVX81Axj2BnmT1LojUcspVxHZCzvUk0DDG1Mg_jFw_WYNxiXf-4Ys94edrsbtguUiGPrpXZ3kVnQDvnJQQkyG8oeBt2RVpqKaCshRmt1oyynKV/lqh7v5xw3wr5v1c/install.bat" target="_blank" class="download-btn">Install (Early Access)</a>
+    <h2 style="font-weight: bold; text-align: center;">Download For More Info</h2>
+    <p style="text-align: center;">Download ArsonLauncher V1.0.5</p>
+    <div class="install-btn" onmouseover="showDropdown()" onmouseout="hideDropdown()">
+        Install (Early Access)
+        <div class="dropdown-content">
+            <a href="#">Version 1.0.5</a>
+            <a href="#">Version 1.0.4</a>
+            <a href="#">Version 1.0.3</a>
+        </div>
+    </div>
+    <button class="close-btn" onclick="hidePopup()">Close</button>
 </div>
 
 <script>
-    // JavaScript function to open specific tab content
-    function openTab(event, tabName) {
+    function openTab(evt, tabName) {
         var i, tabcontent, tablinks;
-
-        // Hide all tab content
         tabcontent = document.getElementsByClassName("tabcontent");
         for (i = 0; i < tabcontent.length; i++) {
             tabcontent[i].style.display = "none";
         }
-
-        // Remove the class "active" from all tab buttons
         tablinks = document.getElementsByClassName("tablinks");
         for (i = 0; i < tablinks.length; i++) {
             tablinks[i].className = tablinks[i].className.replace(" active", "");
         }
-
-        // Show the current tab content and add "active" class to the button that opened the tab
         document.getElementById(tabName).style.display = "block";
-        event.currentTarget.className += " active";
+        evt.currentTarget.className += " active";
     }
 
-    // Show popup
     function showPopup() {
         document.getElementById("popupOverlay").style.display = "block";
         document.getElementById("popup").style.display = "block";
     }
 
-    // Hide popup
     function hidePopup() {
         document.getElementById("popupOverlay").style.display = "none";
         document.getElementById("popup").style.display = "none";
+    }
+
+    function showDropdown() {
+        document.querySelector(".dropdown-content").style.display = "block";
+    }
+
+    function hideDropdown() {
+        document.querySelector(".dropdown-content").style.display = "none";
     }
 </script>
 
 </body>
 </html>
-
