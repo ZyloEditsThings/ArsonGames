@@ -100,6 +100,39 @@
                 transform: translateY(0);
             }
         }
+
+        /* Style for the popup */
+        .popup {
+            display: none;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            height: 200px;
+            background-color: #fff;
+            border: 2px solid #000;
+            border-radius: 10px;
+            z-index: 1000;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .popup .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #000;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .popup .close-btn:hover {
+            background-color: #333;
+        }
     </style>
 </head>
 <body style="background-color: #f0f0f0; margin: 0;">
@@ -145,16 +178,13 @@
 
 <div id="Download" class="tabcontent">
     <h2>Download Our Launcher To Run All Of Our Games</h2>
-    <p>SOON</p>
     <button onclick="showPopup()">More Info</button>
 </div>
 
 <!-- Popup -->
-<div class="popup-overlay" id="popupOverlay"></div>
 <div class="popup" id="popup">
-    <h2>Download Information</h2>
-    <p>Here you can find more details about downloading our launcher and other products.</p>
-    <button class="close-btn" onclick="hidePopup()">Close</button>
+    <span class="close-btn" onclick="hidePopup()">Close</span>
+    <p>This is the popup content. Add your information here.</p>
 </div>
 
 <script>
@@ -181,23 +211,12 @@
 
     // Show popup
     function showPopup() {
-        document.getElementById("popupOverlay").style.display = "block";
-        var popup = document.getElementById("popup");
-        popup.style.display = "block";
-        setTimeout(function() {
-            popup.classList.add("show");
-        }, 3); // Decreased delay to 3ms
+        document.getElementById("popup").style.display = "block";
     }
 
-   
     // Hide popup
     function hidePopup() {
-        document.getElementById("popupOverlay").style.display = "none";
-        var popup = document.getElementById("popup");
-        popup.classList.remove("show");
-        setTimeout(function() {
-            popup.style.display = "none";
-        }, 500); // Match the transition duration
+        document.getElementById("popup").style.display = "none";
     }
 </script>
 
