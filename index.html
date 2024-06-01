@@ -77,6 +77,7 @@
             justify-content: center;
             align-items: center;
             height: calc(100vh - 100px); /* Full height minus the height of the tab container and heading */
+            animation: slide-in 1s ease-out; /* Animation for sliding in */
         }
 
         .rectangle {
@@ -89,6 +90,15 @@
             display: flex;
             justify-content: center;
             align-items: center;
+        }
+
+        @keyframes slide-in {
+            0% {
+                transform: translateY(100%);
+            }
+            100% {
+                transform: translateY(0);
+            }
         }
     </style>
 </head>
@@ -176,6 +186,7 @@
         popup.style.display = "block";
         setTimeout(function() {
             popup.classList.add("show");
+       
         }, 3); // Decreased delay to 3ms
     }
 
@@ -186,8 +197,7 @@
         popup.classList.remove("show");
         setTimeout(function() {
             popup.style.display = "none";
-        }, 500
-        // Match the transition duration
+        }, 500); // Match the transition duration
     }
 </script>
 
