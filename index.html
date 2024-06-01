@@ -102,6 +102,17 @@
         }
 
         /* Style for the popup */
+        .popup-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+            z-index: 999; /* On top of other content */
+        }
+
         .popup {
             display: none;
             position: fixed;
@@ -174,12 +185,14 @@
 <div id="Code" class="tabcontent">
     <h2>Code</h2>
     <p>Code that is being used for the game is C# and a tiny amount of javascript for the server at the moment.</p>
-</div>
-
-<div id="Download" class="tabcontent">
+</div> 
+    <div id="Download" class="tabcontent">
     <h2>Download Our Launcher To Run All Of Our Games</h2>
     <button onclick="showPopup()">More Info</button>
 </div>
+
+<!-- Popup overlay -->
+<div class="popup-overlay" id="popupOverlay"></div>
 
 <!-- Popup -->
 <div class="popup" id="popup">
@@ -211,11 +224,13 @@
 
     // Show popup
     function showPopup() {
+        document.getElementById("popupOverlay").style.display = "block";
         document.getElementById("popup").style.display = "block";
     }
 
     // Hide popup
     function hidePopup() {
+        document.getElementById("popupOverlay").style.display = "none";
         document.getElementById("popup").style.display = "none";
     }
 </script>
