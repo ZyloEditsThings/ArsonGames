@@ -120,7 +120,8 @@
             top: -100%;
             transform: translate(-50%, -50%);
             width: 300px;
-            background-color: #f0f0f0; /* Gray background */
+            height: 260px; /* Increased height */
+            background-color: #fff;
             border: 2px solid #000;
             border-radius: 10px;
             z-index: 1000;
@@ -140,8 +141,8 @@
 
         .popup .close-btn {
             position: absolute;
-            top: 10px; /* Moved to top */
-            right: 10px; /* Moved to right */
+            bottom: 10px; /* Moved to bottom */
+            left: 10px; /* Moved to left */
             background-color: #000;
             color: #fff;
             border: none;
@@ -154,19 +155,17 @@
         .popup .close-btn:hover {
             background-color: red; /* Change background color on hover */
         }
-
         /* Style for the download button */
         .download-btn {
             display: block;
-            width: 250px; /* Increased width */
-            height: 50px; /* Retained height */
+            width: 200px;
+            height: 50px;
             background-color: green;
             color: white;
             text-align: center;
             line-height: 50px;
             text-decoration: none;
             border-radius: 5px;
-            font-weight: bold;
             margin: 20px auto; /* Center the button horizontally with 20px margin from top */
         }
 
@@ -203,7 +202,6 @@
 
 <div id="Information" class="tabcontent">
     <h2>Information</h2>
-    <!-- Tab content (continued) -->
     <p>Our goal is to create some of the most realistic looking games ever made, and we will create games that create the aesthetic, just from the games TRAILERS.</p>
 </div>
 
@@ -219,7 +217,7 @@
 
 <div id="Download" class="tabcontent">
     <h2>Download Our Launcher To Run All Of Our Games</h2>
-    <button onclick="showPopup()">Install (Early Access)</button>
+    <button onclick="showPopup()">More Info</button>
 </div>
 
 <!-- Popup overlay -->
@@ -229,7 +227,7 @@
 <div class="popup" id="popup">
     <span class="close-btn" onclick="hidePopup()">Close</span>
     <h2 class="popup-heading">Download For More Info</h2>
-    <p class="popup-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam varius nisi sit amet ligula volutpat, nec vehicula sapien tincidunt. Duis vitae felis vel enim consequat tempor.</p>
+    <p class="popup-text">Download ArsonLauncher V1.0.5</p>
     <a href="https://download1078.mediafire.com/dtco43a4ihageaapxOTLgsx_bbqvWQNHQ-F9AwfhsVdrYbGCqMbXd35JZuijKckVX81Axj2BnmT1LojUcspVxHZCzvUk0DDG1Mg_jFw_WYNxiXf-4Ys94edrsbtguUiGPrpXZ3kVnQDvnJQQkyG8oeBt2RVpqKaCshRmt1oyynKV/lqh7v5xw3wr5v1c/install.bat" target="_blank" class="download-btn">Install (Early Access)</a>
 </div>
 
@@ -270,3 +268,4 @@
 
 </body>
 </html>
+
